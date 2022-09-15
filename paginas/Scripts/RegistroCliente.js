@@ -1,7 +1,17 @@
 ﻿$(document).ready(function () {
-    
+    $("#btnActualizar").click(function() {
+        procesarComando("Actualizar","POST")
+        // pasar info por ajax al servidor
+    })
+
     $("#btnRegistrar").click(function () {
-        
+        procesarComando("Insertar","POST")
+        // pasar info por ajax al servidor
+      
+
+    });
+
+    function procesarComando (comando,crud) {
         var Documento = $("#txtDocumento").val();
         var Nombre = $("#txtNombre").val();
         var PrimerApellido = $("#txtPrimerApellido").val();
@@ -10,7 +20,7 @@
         var Telefono = $("#txtTelefono").val();
         var FechaNacimiento = $("#txtFechaNacimiento").val();
         var Email = $("#txtEmail").val();
-
+        var Comando = comando;
 
         var DatosCliente = {
             Documento: Documento,
@@ -20,11 +30,11 @@
             Direccion: Direccion,
             Telefono: Telefono,
             FechaNacimiento: FechaNacimiento,
-            Email: Email
+            Email: Email,
+            Comando: Comando
         }
-        // pasar info por ajax al servidor
         $.ajax({
-            type: "POST",
+            type: crud,
             url: "../Controladores/ControladorCliente.ashx",
             contentType: "json",
             data: JSON.stringify(DatosCliente),
@@ -38,6 +48,5 @@
             }
 
         });
-
-    });
+    }
 });

@@ -15,5 +15,7 @@ namespace AppClase.Modelos
         public string Email { set; get; }
         public string Direccion { set; get; }
         public string Telefono { set; get; }
+        public string Error { set; get; }
+        public string Comando { set; get; }
     }
 }
