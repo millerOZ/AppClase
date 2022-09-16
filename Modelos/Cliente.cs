@@ -11,7 +11,7 @@ namespace AppClase.Modelos
         public string Nombre { set; get; }
         public string PrimerApellido { set; get; }
         public string SegundoApellido { set; get; }
-        public DateTime FechaNacimiento { set; get; }
+        public DateTime? FechaNacimiento { set; get; } = DateTime.Now;
         public string Email { set; get; }
         public string Direccion { set; get; }
         public string Telefono { set; get; }
